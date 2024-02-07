@@ -1,6 +1,6 @@
 // This one will be a little tricky. So check out this overview first: https://www.youtube.com/watch?v=sJ-c3BA-Ypo
 
-// 1. Create a variable to store the singleton instance of the bank branch.
+// 1. Create a variable to store the singleton instance of the bank branch. "bankBranchInstance"
 
 // 2. Define a class called `BankBranch` for managing branch information.
 
@@ -19,38 +19,7 @@
 
 // This pseudo-code provides a step-by-step explanation of how to implement the Singleton Pattern for managing a single instance of the `BankBranch` class throughout the application, ensuring that multiple instances refer to the same object.
 
-
-// Define a variable to hold the singleton instance
-let bankBranchInstance = null;
-
-// Define the Singleton class for BankBranch
-class BankBranch {
-  constructor(branchInfo) {
-    // Check if the instance already exists; if yes, return it; otherwise, create a new instance
-    if (!bankBranchInstance) {
-      this.branchInfo = branchInfo;
-      bankBranchInstance = this;
-    }
-    return bankBranchInstance;
-  }
-
-  // Define methods to manage branch information
-  getBranchInfo() {
-    return this.branchInfo;
-  }
-  
-  // Other methods related to branch management can be added here.
-}
-
-// Usage
-const branchA = new BankBranch("Main Street Branch");
-console.log(branchA.getBranchInfo()); // Outputs: Main Street Branch
-
-const branchB = new BankBranch("Second Street Branch");
-console.log(branchB.getBranchInfo()); // Still outputs: Main Street Branch, because it's a singleton
-
-console.log(branchA === branchB); // true, both variables point to the same instance
-
+// NOTES:
 // This example demonstrates the Singleton pattern by creating a single instance of the `BankBranch` class.
 // Even if we attempt to create another instance of the branch, we receive the original instance,
 // ensuring that there is only one set of branch information throughout the application.
