@@ -32,3 +32,27 @@
 // - The `getBranchInfo` method allows us to retrieve the branch information from the singleton instance.
 // - We demonstrate the Singleton pattern by creating two instances (`branchA` and `branchB`) and show that they both point to the same instance,
 //   ensuring that there is only one set of branch information throughout the application.
+
+let bankBranchInstance = null;
+
+class BankBranch {
+  constructor(branchInfo) {
+    if (!bankBranchInstance) {
+      this.branchInfo = branchInfo;
+      bankBranchInstance = this;
+      Object.freeze(bankBranchInstance);
+    }
+    return bankBranchInstance;
+  }
+  getBranchInfo() {
+    console.log(`Branch Info: ${this.branchInfo}`);
+  }
+}
+
+const branchA = new BankBranch(`552 Garsfontein, Pretoria`);
+const branchB = new BankBranch(`777 Glenwood, Cape Town`);
+
+branchA.getBranchInfo();
+branchB.getBranchInfo();
+
+console.log(branchA === branchB);
